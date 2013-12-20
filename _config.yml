@@ -1,0 +1,4 @@
+name: The blog of Marnu Lombard
+markdown: redcarpet
+pygments: true
+destination: ../dist
