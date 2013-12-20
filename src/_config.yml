@@ -1,6 +1,4 @@
 name: The blog of Marnu Lombard
 markdown: redcarpet
 pygments: true
-source: src
-destination: dist
-baseurl: /blog
+destination: ../dist
