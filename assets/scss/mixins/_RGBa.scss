@@ -1,0 +1,13 @@
+// as per http://thesassway.com/intermediate/mixins-for-semi-transparent-colors
+// usage:
+// 			.class {
+// 				@include alpha('background-color', rgba(black, 0.5), white);
+// 			}
+
+@mixin alpha($attribute, $color, $background) {
+  $percent: alpha($color) * 100%;
+  $opaque: opacify($color, 1);
+  $solid-color: mix($opaque, $background, $percent);
+  #{$attribute}: $solid-color;
+  #{$attribute}: $color;
+}

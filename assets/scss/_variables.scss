@@ -1,0 +1,33 @@
+// Typography
+// --------------------------------------------------
+
+$base-font: 					"Ubuntu-L", "Helvetica Neue", "Helvetica", arial, sans-serif;
+$heading-font: 			"Bellota-Bold", "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
+$caption-font: $base-font;
+$code-font: 'source-code-pro', monospace;
+$alt-font: $heading-font;
+
+$doc-font-size: 16;
+$doc-line-height: 24;
+
+// A lazy hack to make a mixin in my library work
+$base-font-size: $doc-font-size;
+
+// set-up the body font-size / line-height
+body {
+	margin-top: 0px + $doc-line-height;
+	font-size: 0px + $doc-font-size;
+}
+
+// Colors
+// --------------------------------------------------
+
+$body-color      		: #ebebeb;
+$text-color      		: #222;
+$base-color 	 			: #3063bb;
+$comp-color 	 			: adjust_hue($base-color, 180);
+$border-color    		: $base-color;
+$white           		: #fff;
+$black           		: #000;
+$accent-color    		: $base-color;
+$link-color 		    : #222;

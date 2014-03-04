@@ -1,0 +1,88 @@
+/*
+  See here: http://davidwalsh.name/rem-px-browser-function-sass
+
+  ========================
+  NOTE:
+  ========================
+  lt ie9 = no rem support
+  (also no mq support)
+
+  ========================
+  FUNCTION EXPLANATIONS:
+  ========================
+  1.  This variable refers to the default browser's font-size, and 1rem = 16px.
+      For more maintainability, we store the value in a variable in order to reuse it or to change it easily.
+  2.  This function returns a number from a string, thanks Hugo for it!
+      http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+  3.  We called our function u because it's faster to type. u also stands for 'unit'.
+      This function takes one argument which is an array of REM or PX values.
+  4.  We define a new list, where we'll store new values.
+  5.  For each value passed in $values argument, test the current value and store it in the $list array.
+  6.  This Sass function returns the unit associated with a number. In our case, PX or REM.
+  7.  First condition: if 'pixels only' mode is active and unit value is rem,
+      convert rem value in pixels and push it into $list array.
+  8.  Second condition: else if the units are px or rem, we just push value into list.
+  9.  If the first and second conditions fail, we throw a warning in Sass console.
+  10. Lastly, we return the whole list as clean vanilla css values.
+
+  ========================
+  USAGE
+  ========================
+  _EXAMPLE.SCSS:
+  .main-header {
+        margin:u(1rem 2rem 20px 3rem);
+        padding-bottom:u(0.25rem);
+        font-size:u(0.875rem);
+  }
+
+  Outputs to:
+
+  MAIN.CSS:
+  .main-header {
+        margin: 1rem 2rem 20px 3rem;
+        padding-bottom: 0.25rem;
+        font-size: 0.875rem;
+  }
+
+  MAIN-IE.CSS:
+  .main-header {
+        margin: 16px 32px 20px 48px;
+        padding-bottom: 4px;
+        font-size: 14px;
+  }
+
+  */
+
+
+$pixelBase : $base-font-size; /* 1 */ // as per _typography-vars
+
+@function parseInt($n) {
+	@return $n / ($n * 0 + 1); /* 2 */
+}
+
+@function u($values){ /* 3 */
+
+      $list: (); /* 4 */
+
+      @each $value in $values { /* 5 */
+
+            $unit : unit($value); /* 6 */
+            $val  : parseInt($value); /* 2 */
+
+            @if ($px-only) and ($unit == 'rem') { /* 7 */
+                  $list: append($list, ($val * $pixelBase) + px); /* 7 */
+            }
+
+            @else if($unit == 'px') or ($unit == 'rem'){ /* 8 */
+                  $list: append($list, $value); /* 8 */
+            }
+
+            @else {
+                  @warn 'There is no unit conversion for #{$unit}'; /* 9 */
+            }
+
+      }
+
+      @return $list(); /* 10 */
+
+}

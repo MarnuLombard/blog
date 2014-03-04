@@ -1,0 +1,40 @@
+// ---------------------------------------------------------- //
+/* ==============[ Basic Gradient mixin ]============== */
+
+//	Created by Marnu Lombard
+//	V0.1
+//	github.com/MarnuLombard
+//
+//	Simple gradients for subtle backgrounds 
+//  Internet explorer <10 support turned on by using the $ie flag
+//  When calling the mixin
+
+//	Provided under the MIT Public License
+//	opensource.org/licenses/MIT
+
+// ---------------------------------------------------------- //
+
+$ie: false !default;
+
+@mixin gradient($color, $ie) {
+
+$color1 : saturate(darken($color, 2%), 5%);
+$color2 : saturate(darken($color, 5%), 10%);
+$color3 : saturate(darken($color, 10%), 15%);
+
+	background-color: $color;
+	@include background-image(
+		linear-gradient(
+			top, 
+			rgba($color, 1),
+			rgba($color1, 1) 50%,
+			rgba($color2, 1) 75%,
+			rgba($color3, 1) 95%
+		)
+	);
+
+	@if $ie {
+		filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$color}', EndColorStr='#{$color3}');
+	}
+
+}

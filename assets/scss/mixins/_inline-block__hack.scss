@@ -1,0 +1,11 @@
+%inline-block__hack {
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	vertical-align: top;
+}
+
+@mixin inline-block__hack {
+	@extend %inline-block__hack;
+}

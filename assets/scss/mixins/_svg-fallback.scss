@@ -1,0 +1,21 @@
+// ---------------------------------------------------------- //
+/* ==============[ Mixin forr css svg images ]============== */
+
+//	Created by Marnu Lombard
+//	V1.0
+//	MarnuLombard.github.com
+//
+//	Original technique written by Pau Giner.
+//  http://pauginer.tumblr.com/post/36614680636/invisible-gradient-technique
+
+//	Provided under the MIT Public License
+//	opensource.org/licenses/MIT
+
+// ---------------------------------------------------------- //
+
+@mixin svg-fallback($image) {
+	$support-for-original-webkit-gradients : false; // so as to serve fallback to android 2.*
+	
+	background: image-url("#{$image}.png") center center no-repeat; 
+	@include background-image(linear-gradient(left, transparent, transparent), image-url("#{$image}.svg"));
+}

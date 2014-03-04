@@ -1,4 +1,98 @@
-name: The blog of Marnu Lombard
-markdown: redcarpet
-pygments: true
+title:            Marnu Lombard
+description:      The near-sane ramblings of a web developer.
+logo:             site-logo.png
+# disqus_shortname:
+search:           true
+#Change url to your domain. Leave localhost server or blank when working locally.
+url:              http://ramblings.marnulombard.com
+
+source: ./
 destination: ../dist
+
+# Owner/author information
+owner:
+  name:           Marnu Lombard
+  avatar:         bio-photo.jpg
+  email:          <marnu> at <marnulombard> dot <com>
+  # Social networking links used in footer. Update and remove as you like.
+  twitter:        mr_springtime
+  facebook:
+  github: 				MarnuLombard
+  stackexchange:
+  linkedin:
+  instagram:
+  flickr:
+  tumblr:
+  # For Google Authorship https://plus.google.com/authorship
+  google_plus:
+
+# Analytics and webmaster tools stuff goes here
+google_analytics:
+google_verify:
+# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
+bing_verify:
+
+# Links to include in top navigation
+# For external links add external: true
+links:
+  - title: Portfolio
+    url: http://marnulombard.com
+    external: true
+  - title: Ramblings
+    url: /articles
+  - title: Theme Setup
+    url: /theme-setup
+
+# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone:    Africa/Johannesburg
+future:      true
+pygments:    true
+markdown:    kramdown
+
+# https://github.com/mojombo/jekyll/wiki/Permalinks
+permalink:   /:categories/:title
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  use_coderay: false
+
+  coderay:
+    coderay_line_numbers:
+    coderay_line_numbers_start: 1
+    coderay_tab_width: 4
+    coderay_bold_every: 10
+    coderay_css: class
+
+
+keep_files:  	[
+								".git",
+								".gitignore",
+								"CNAME"
+							]
+include: 			[
+								".htaccess",
+								"README.md"
+							]
+exclude: 			[
+								"lib",
+								"config.rb",
+								"Gemfile",
+								"Capfile",
+								"Gemfile.lock",
+								"config",
+								"log",
+								"Rakefile",
+								"Rakefile.rb",
+								"tmp",
+								"less",
+								"*.sublime-project",
+								"*.sublime-workspace",
+								"test",
+								"spec",
+								"Gruntfile.js",
+								"package.json",
+								"node_modules"
+							]

@@ -1,0 +1,21 @@
+////////////////////////
+// Degrade From
+//
+// - $feature: Modernizr feature (base CSS class name)
+//
+// From Toolkit - (c) Sam Richard, Scott Kellum 2012
+// Toolkit is dual licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php) and [GPL](http://www.gnu.org/licenses/gpl.html) Licenses.
+////////////////////////
+@mixin degrade-from($feature, $no-js: true) {
+  @if $feature == 'js' or not $no-js {
+    .no-#{$feature} & {
+      @content;
+    }
+  }
+  @else {
+    .no-#{$feature} &,
+    .no-js & {
+      @content;
+    }
+  }
+}

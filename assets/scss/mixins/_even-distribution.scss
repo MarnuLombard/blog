@@ -1,0 +1,21 @@
+@import "inline-block__hack";
+
+%even-distribution--wrapper{
+    text-align: justify;
+
+	&:after{
+	    content: '';
+	    width: 100%;
+	    height: 1px;
+	    @extend %inline-block__hack;
+	}
+}
+
+@mixin even-distribution--item{
+    @extend %inline-block__hack;
+}
+
+
+@mixin even-distribution--wrapper{
+   @extend %even-distribution--wrapper
+}
